@@ -16,7 +16,7 @@
             var pattern = /[?&]([^&=]+)=([^&]*)/g;
             var params = {};
             while ((matches = pattern.exec($scope.url)) !== null) { 
-              params[matches[1]] = decodeURIComponent(matches[2]);
+              params[matches[1]] = decodeURIComponent(matches[2]).replace(/\+/g, ' ');
             }
             $scope.params = params;
           }
@@ -39,8 +39,6 @@
           </tr>
         </table>
       </div>
-
     </div>
-
   </body>
 </html>
